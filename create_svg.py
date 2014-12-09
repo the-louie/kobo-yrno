@@ -1,7 +1,7 @@
 from xml.dom.minidom import parse
 from datetime import datetime, timedelta
 from sqlite3 import connect
-from sys import maxint, minint
+from sys import maxint
 
 DBCON = connect('./weather.db')
 DBCUR = DBCON.cursor()
