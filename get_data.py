@@ -3,12 +3,13 @@ import datetime
 import urllib2
 import sqlite3
 import os
+import sys
 
-basepath = os.path.dirname(os.path.realpath(__file__))
-con =sqlite3.connect(basepath + '/weather.db')
-cur =con.cursor()
+BASEPATH = os.path.dirname(os.path.realpath(__file__))
+DBCON = sqlite3.connect(BASEPATH + '/weather.db')
+DBCUR = DBCON.cursor()
 
-cur.execute("""CREATE TABLE IF NOT EXISTS yrno
+DBCUR.execute("""CREATE TABLE IF NOT EXISTS yrno
         (tstamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         wdate TEXT,
         unixtime INT,
@@ -20,6 +21,12 @@ cur.execute("""CREATE TABLE IF NOT EXISTS yrno
         wind_direction_deg REAL,
         wind_direction_code TEXT)
     """)
+
+
+def elattr(root, elname, attrname):
+    el = root.getElementsByTagName(elname)[0]
+    attr = el.getAttribute(attrname)
+    return attr
 
 
 # get yr.no data
@@ -36,16 +43,18 @@ tabular = data_doc.getElementsByTagName('tabular')[0]
 for child in tabular.childNodes:
     element_data = {}
     try:
-        element_time = datetime.datetime.strptime( child.getAttribute('from'), "%Y-%m-%dT%H:%M:%S" )
+        element_time = datetime.datetime.strptime(
+                child.getAttribute('from'),
+                "%Y-%m-%dT%H:%M:%S")
         element_data['date'] = element_time.strftime('%Y%m%d')
         element_data['unixtime'] = element_time.strftime('%s')
         element_data['period'] = child.getAttribute('period')
-        element_data['symbol'] = child.getElementsByTagName('symbol')[0].getAttribute('number')
-        element_data['temperature']  = child.getElementsByTagName('temperature')[0].getAttribute('value')
-        element_data['wind_speed_mps'] = child.getElementsByTagName('windSpeed')[0].getAttribute('mps')
-        element_data['wind_speed_name'] = child.getElementsByTagName('windSpeed')[0].getAttribute('name')
-        element_data['wind_direction_deg'] = child.getElementsByTagName('windDirection')[0].getAttribute('deg')
-        element_data['wind_direction_code'] = child.getElementsByTagName('windDirection')[0].getAttribute('code')
+        element_data['symbol'] = elattr(child, 'symbol', 'number')
+        element_data['temperature']  = elattr(child, 'temperature', 'value')
+        element_data['wind_speed_mps'] = elattr(child, 'windSpeed', 'mps')
+        element_data['wind_speed_name'] = elattr(child, 'windSpeed', 'name')
+        element_data['wind_dir_deg'] = elattr(child, 'windDirection', 'deg')
+        element_data['wind_dir_code'] = elattr(child, 'windDirection', 'code')
 
         #print element_data
         query = """INSERT INTO yrno (
@@ -62,7 +71,7 @@ for child in tabular.childNodes:
                 ?,?,?,?,?,?,?,?,?
             )"""
 
-        con.execute(
+        DBCUR.execute(
                 query,
                 (element_data['date'],
                 element_data['unixtime'],
@@ -71,11 +80,11 @@ for child in tabular.childNodes:
                 element_data['temperature'],
                 element_data['wind_speed_mps'],
                 element_data['wind_speed_name'],
-                element_data['wind_direction_deg'],
-                element_data['wind_direction_code'])
+                element_data['wind_dir_deg'],
+                element_data['wind_dir_code'])
             )
     except AttributeError, e:
         #print e.__class__.__name__, e
         pass
 
-con.commit()
+DBCON.commit()
