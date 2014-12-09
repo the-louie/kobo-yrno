@@ -5,6 +5,7 @@
 
 <!-- set def tag to invisible to imagemagick convert doesn't show all the icons -->
 <def visibility="hidden">
+	<g id="yrno0" ></g>
 	<g id="yrno1" transform="scale(0.3)">
 		<path fill="#000" d="M242.5,84.3v56.5H257V84.3H242.5z M177,100.2l-12.5,8l30,48l12.5-8L177,100.2L177,100.2z M324,101.8
 			l-27.5,49.5l13,7.5l27.5-49.5L324,101.8z M112.5,155.7l-7,13l49,27.5l7.5-13L112.5,155.7L112.5,155.7z M250,157.7
@@ -1054,61 +1055,116 @@
 	</g>
 
 </def>
-<rect x="0"   y="150" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
-<rect x="150" y="150" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
-<rect x="300" y="150" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
-<rect x="450" y="150" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
+
+<!--       						-->
+<!-- ********* TODAY ********** -->
+<!--       						-->
+<text id="day0" text-anchor="middle" transform="matrix(1 0 0 1 300 110)" font-family="'Helvetica'" font-size="60">Sondag 27 dec</text>
 
 <!-- today 00:00 - 06:00 -->
 <g transform="translate(0 150)">
-	<use xlink:href="#yrno12"/>
+	<use id="icon00" xlink:href="#yrno0"/>
 </g>
 <!-- today 06:00 - 12:00 -->
 <g transform="translate(150 150)">
-	<use xlink:href="#yrno24"/>
+	<use id="icon01" xlink:href="#yrno0"/>
 </g>
 <!-- today 12:00 - 18:00 -->
 <g transform="translate(300 150)">
-	<use xlink:href="#yrno31"/>
+	<use id="icon02" xlink:href="#yrno0"/>
 </g>
 <!-- today 18:00 - 00:00 -->
 <g transform="translate(450 150)">
-	<use xlink:href="#yrno42"/>
+	<use id="icon03" xlink:href="#yrno0"/>
 </g>
 
+<!-- temps -->
+<text id="temp00" text-anchor="end" transform="matrix(1 0 0 1 145 295)" font-family="Helvetica-Light" font-size="12">-18</text>
+<text id="temp01" text-anchor="end" transform="matrix(1 0 0 1 295 295)" font-family="Helvetica-Light" font-size="12">28</text>
+<text id="temp02" text-anchor="end" transform="matrix(1 0 0 1 445 295)" font-family="Helvetica-Light" font-size="12">35</text>
+<text id="temp03" text-anchor="end" transform="matrix(1 0 0 1 595 295)" font-family="Helvetica-Light" font-size="12">7</text>
+
+<!-- hi / low temperatures -->
 <g>
-	<text text-anchor="end" transform="matrix(1 0 0 1 190 430)" font-family="'Helvetica-Light'" font-size="90">-17<!-- LOW TEMP --></text>
+	<text id="templo" text-anchor="end" transform="matrix(1 0 0 1 190 430)" font-family="'Helvetica-Light'" font-size="90">-17</text>
 	<circle fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" cx="215" cy="377.5" r="8"/>
 	<text transform="matrix(1 0 0 1 197.2263 424.5)" font-family="'Helvetica-Light'" font-size="24">min</text>
 </g>
 <g>
-	<text text-anchor="end" transform="matrix(1 0 0 1 450 430)" font-family="'Helvetica-Light'" font-size="90">-18<!-- HIGH TEMP --></text>
+	<text id="temphi" text-anchor="end" transform="matrix(1 0 0 1 450 430)" font-family="'Helvetica-Light'" font-size="90">-18</text>
 	<circle fill="none" stroke="#000000" stroke-width="4" stroke-miterlimit="10" cx="475" cy="377.5" r="8"/>
 	<text transform="matrix(1 0 0 1 456 425)" font-family="'Helvetica-Light'" font-size="24">max</text>
 </g>
 
+<!--       						-->
+<!-- ******* TOMORROW ********* -->
+<!--       						-->
+<text id="day1" transform="matrix(1 0 0 1 5.3392 512.0672)" font-family="Helvetica-Light" font-size="12">Tomorrow</text>
+
+
 <!-- today 00:00 - 06:00 -->
-<g transform="translate(0 649.7)">
-	<use xlink:href="#yrno1"/>
+<g transform="translate(0 500)">
+	<use id="icon10" xlink:href="#yrno0"/>
 </g>
 <!-- today 06:00 - 12:00 -->
-<g transform="translate(150 649.7)">
-	<use xlink:href="#yrno1"/>
+<g transform="translate(150 500)">
+	<use id="icon11" xlink:href="#yrno0"/>
 </g>
 <!-- today 12:00 - 18:00 -->
-<g transform="translate(300 649.7)">
-	<use xlink:href="#yrno1"/>
+<g transform="translate(300 500)">
+	<use id="icon12" xlink:href="#yrno0"/>
 </g>
 <!-- today 18:00 - 00:00 -->
-<g transform="translate(450 649.7)">
-	<use xlink:href="#yrno1"/>
+<g transform="translate(450 500)">
+	<use id="icon13" xlink:href="#yrno0"/>
 </g>
 
 <!-- temps -->
-<text id="temp00" text-anchor="end" transform="matrix(1 0 0 1 145 295)" font-family="Helvetica-Light" font-size="12">-18°</text>
-<text id="temp01" text-anchor="end" transform="matrix(1 0 0 1 295 295)" font-family="Helvetica-Light" font-size="12">28°</text>
-<text id="temp02" text-anchor="end" transform="matrix(1 0 0 1 445 295)" font-family="Helvetica-Light" font-size="12">35°</text>
-<text id="temp03" text-anchor="end" transform="matrix(1 0 0 1 595 295)" font-family="Helvetica-Light" font-size="12">7°</text>
+<text id="temp10" text-anchor="end" transform="matrix(1 0 0 1 145 645)" font-family="Helvetica-Light" font-size="12">-18</text>
+<text id="temp11" text-anchor="end" transform="matrix(1 0 0 1 295 645)" font-family="Helvetica-Light" font-size="12">28</text>
+<text id="temp12" text-anchor="end" transform="matrix(1 0 0 1 445 645)" font-family="Helvetica-Light" font-size="12">35</text>
+<text id="temp13" text-anchor="end" transform="matrix(1 0 0 1 595 645)" font-family="Helvetica-Light" font-size="12">7</text>
+
+
+<!--       						-->
+<!-- ******* NEXT DAY ********* -->
+<!--       						-->
+<text id="day2" transform="matrix(1 0 0 1 5.3392 662.6398)" font-family="Helvetica-Light" font-size="12">Next day</text>
+
+<!-- today 00:00 - 06:00 -->
+<g transform="translate(0 650)">
+	<use id="icon20" xlink:href="#yrno0"/>
+</g>
+<!-- today 06:00 - 12:00 -->
+<g transform="translate(150 650)">
+	<use id="icon21" xlink:href="#yrno0"/>
+</g>
+<!-- today 12:00 - 18:00 -->
+<g transform="translate(300 650)">
+	<use id="icon22" xlink:href="#yrno0"/>
+</g>
+<!-- today 18:00 - 00:00 -->
+<g transform="translate(450 650)">
+	<use id="icon23" xlink:href="#yrno0"/>
+</g>
+
+<!-- temps -->
+<text id="temp20" text-anchor="end" transform="matrix(1 0 0 1 145 795)" font-family="Helvetica-Light" font-size="12">-18</text>
+<text id="temp21" text-anchor="end" transform="matrix(1 0 0 1 295 795)" font-family="Helvetica-Light" font-size="12">28</text>
+<text id="temp22" text-anchor="end" transform="matrix(1 0 0 1 445 795)" font-family="Helvetica-Light" font-size="12">35</text>
+<text id="temp23" text-anchor="end" transform="matrix(1 0 0 1 595 795)" font-family="Helvetica-Light" font-size="12">7</text>
+
+
+
+
+
+
+
+<!-- rects -->
+<rect x="0"   y="150" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
+<rect x="150" y="150" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
+<rect x="300" y="150" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
+<rect x="450" y="150" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
 
 
 <rect x="0" y="649.7" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
@@ -1117,20 +1173,15 @@
 <rect x="450" y="649.7" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
 
 
-<rect y="499.4" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
+<rect x="0"   y="499.4" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
 <rect x="150" y="499.4" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
 <rect x="300" y="499.4" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
 <rect x="450" y="499.4" fill="none" stroke="#000000" stroke-miterlimit="10" width="150" height="150"/>
 
-<text text-anchor="middle" transform="matrix(1 0 0 1 300 110)" font-family="'Helvetica'" font-size="60">Söndag 27 dec</text>
-
-<!-- static text -->
 <!-- times -->
 <text transform="matrix(1 0 0 1 5 162)" font-family="Helvetica-Light" font-size="12">00:00 - 06:00</text>
 <text transform="matrix(1 0 0 1 155 162)" font-family="Helvetica-Light" font-size="12">06:00 - 12:00</text>
 <text transform="matrix(1 0 0 1 305 162)" font-family="Helvetica-Light" font-size="12">12:00 - 18:00</text>
 <text transform="matrix(1 0 0 1 455 162)" font-family="Helvetica-Light" font-size="12">18:00 - 00:00</text>
 <!-- days -->
-<text transform="matrix(1 0 0 1 5.3392 512.0672)" font-family="Helvetica-Light" font-size="12">I morgon</text>
-<text transform="matrix(1 0 0 1 5.3392 662.6398)" font-family="Helvetica-Light" font-size="12">I övermorgon</text>
 </svg>
