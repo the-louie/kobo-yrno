@@ -1056,6 +1056,7 @@
 
 </def>
 
+<text id="gentime" text-anchor="left" transform="matrix(1 0 0 1 0 10)" font-family="'Helvetica'" font-size="12">Y-m-d H:M</text>
 <!--       						-->
 <!-- ********* TODAY ********** -->
 <!--       						-->

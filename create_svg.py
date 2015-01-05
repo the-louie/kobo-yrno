@@ -44,7 +44,12 @@ replacetext = {
     'icon21': 'yrno0',
     'icon22': 'yrno0',
     'icon23': 'yrno0',
+
+    'gentime': 'unknown'
 }
+
+# update gentime
+replacetext['gentime'] = datetime.now().strftime("%Y%m%d %H:%M")
 
 # replace name of the days
 replacetext['day0'] = datetime.now().strftime("%A")
