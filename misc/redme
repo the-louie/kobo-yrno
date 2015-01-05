@@ -1,0 +1,2 @@
+#register
+INSERT INTO "user" VALUES('aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa','aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa','xxxx@xxxx.xx','xxxx@xxxx.xx','2aaaa aaaaaaaaaaaaa==');
