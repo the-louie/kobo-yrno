@@ -1,30 +1,28 @@
 #! /bin/sh
 
-# start wifi
-insmod /drivers/ntx508/wifi/sdio_wifi_pwr.ko
-insmod /drivers/ntx508/wifi/dhd.ko
+echo "run.sh started "$(date | tr -d '\n')
+echo "sleeping for 30s"
+sleep 30
 
-exit
+# clear old scripts
+echo "clearing old scripts"
+rm -rf /mnt/onboard/scripts
+mkdir -p /mnt/onboard/scripts
 
-# standard
+# enable networking
+echo "enable networking"
+/bin/sh /mnt/onboard/wifiup.sh
 
-# stop these in init.d/rcS instead
-# sleep 10
-# killall nickel
-# killall hindenburg
-# sleep 10
+echo "wait a while..."
+usleep 500000 # sleep for 5 seconds
 
+# try to download script to run
+echo "fetching main.sh"
+while ! wget -T 10 -O /mnt/onboard/scripts/main.sh -q http://31.31.164.43/labb/kobo/main.sh; do
+	echo " * fail"
+	usleep 1000000 # sleep for 10 seconds
+done
 
-crond &
-sleep 2
-
-# do this change the led behaviour?
-echo "ch 4" > /sys/devices/platform/pmic_light.1/lit # channel 4 is the led
-echo "cur 0" > /sys/devices/platform/pmic_light.1/lit # turn off the led (current -> 0)
-echo "dc 0" > /sys/devices/platform/pmic_light.1/lit # turn off the led (PWM cycle -> 0)
-
-cat /mnt/onboard/testimage.raw | /usr/local/Kobo/pickel showpic
-
-
-sleep 3
-#/bin/sh /mnt/onboard/update.sh
+# run script
+echo "running main.sh"
+/bin/sh /mnt/onboard/scripts/main.sh
