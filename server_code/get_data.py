@@ -6,7 +6,7 @@ import os
 import sys
 
 BASEPATH = os.path.dirname(os.path.realpath(__file__))
-DBCON = sqlite3.connect(BASEPATH + '/weather.db')
+DBCON = sqlite3.connect(BASEPATH + '/db/weather.db')
 DBCUR = DBCON.cursor()
 
 DBCUR.execute("""CREATE TABLE IF NOT EXISTS yrno
