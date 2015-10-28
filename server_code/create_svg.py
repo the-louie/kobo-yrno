@@ -140,6 +140,6 @@ for el in template_doc.getElementsByTagName('use'):
 
 
 # save the result as an svg
-fh = open("output.svg","wb")
+fh = open("./tmp/output.svg","wb")
 template_doc.writexml(fh)
 fh.close()
