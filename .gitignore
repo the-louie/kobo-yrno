@@ -2,3 +2,4 @@
 *.svg
 *.raw
 *.raw.gz
+node_modules
